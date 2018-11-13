@@ -1,0 +1,17 @@
+{
+  "name": "openehr-cdr-query",
+  "version": "0.0.1",
+  "description": "ES6 module for querying openEHR CDRs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucl-openehr-explorer/openehr-cdr-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ucl-openehr-explorer/openehr-cdr-query/issues"
+  },
+  "homepage": "https://github.com/ucl-openehr-explorer/openehr-cdr-query#readme"
+}
