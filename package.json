@@ -4,7 +4,10 @@
   "description": "ES6 module for querying openEHR CDRs",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/standard/bin/cmd.js"
+    "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js"
+  },
+  "standard": {
+    "env": [ "jest" ]
   },
   "repository": {
     "type": "git",
@@ -15,6 +18,11 @@
   },
   "homepage": "https://github.com/ucl-openehr-explorer/openehr-cdr-query#readme",
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-core": "^7.0.0-bridge.0",
+    "jest": "^23.6.0",
     "standard": "^12.0.1"
   }
 }
