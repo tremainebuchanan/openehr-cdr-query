@@ -1,0 +1,49 @@
+[
+    {
+        "scope": "https://cdr.code4health.org:443",
+        "method": "POST",
+        "path": "/rest/v1/query",
+        "body": {
+            "aql": "SELECT TOP 1 e/ehr_id/value AS id FROM EHR e"
+        },
+        "status": 401,
+        "response": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\"/>\n<title>Error 401 Unauthorized</title>\n</head>\n<body><h2>HTTP ERROR 401</h2>\n<p>Problem accessing /rest/v1/query. Reason:\n<pre>    Unauthorized</pre></p><hr><a href=\"http://eclipse.org/jetty\">Powered by Jetty:// 9.4.5.v20170502</a><hr/>\n\n</body>\n</html>\n",
+        "rawHeaders": [
+            "Cache-Control",
+            "must-revalidate,no-cache,no-store",
+            "Content-Length",
+            "335",
+            "Content-Type",
+            "text/html;charset=iso-8859-1",
+            "Date",
+            "Thu, 03 Jan 2019 23:15:30 GMT",
+            "Server",
+            "Jetty(9.4.5.v20170502)",
+            "Www-Authenticate",
+            "Basic realm=\"Think!EHR REST\"",
+            "Connection",
+            "close"
+        ],
+        "reqheaders": {
+            "content-type": [
+                "application/json"
+            ],
+            "authorization": [
+                "Basic d3Jvbmc6d3Jvbmc="
+            ],
+            "accept": [
+                "*/*"
+            ],
+            "content-length": [
+                "54"
+            ],
+            "accept-encoding": [
+                "gzip,deflate"
+            ],
+            "connection": [
+                "close"
+            ],
+            "host": "cdr.code4health.org"
+        }
+    }
+]

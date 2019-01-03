@@ -1,0 +1,61 @@
+[
+    {
+        "scope": "https://cdr.code4health.org:443",
+        "method": "POST",
+        "path": "/rest/v1/query",
+        "body": {
+            "aql": "SELECT"
+        },
+        "status": 400,
+        "response": {
+            "status": 400,
+            "code": "QRY-4135",
+            "userMessage": "Could not parse the query.",
+            "developerMessage": "Cannot parse AQL.",
+            "exceptionMessage": "Invalid aql at 1, 6. Token: <EOF>; SELECT--> ",
+            "moreInfo": "https://confluence.ehrvendor.com/display/ehrrest/QRY-4135",
+            "requestHref": "https://cdr.code4health.org/rest/v1/query"
+        },
+        "rawHeaders": [
+            "Cache-Control",
+            "no-cache, must-revalidate, no-store",
+            "Content-Length",
+            "310",
+            "Content-Type",
+            "application/json;charset=utf-8",
+            "Date",
+            "Thu, 03 Jan 2019 23:15:30 GMT",
+            "Expires",
+            "0",
+            "Link",
+            "<https://confluence.ehrvendor.com/display/ehrrest/QRY-4135>; rel=\"desc\"",
+            "Pragma",
+            "no-cache",
+            "Server",
+            "Jetty(9.4.5.v20170502)",
+            "Connection",
+            "close"
+        ],
+        "reqheaders": {
+            "content-type": [
+                "application/json"
+            ],
+            "authorization": [
+                "Basic dXNlcm5hbWU6cGEkJHdvcmQ="
+            ],
+            "accept": [
+                "*/*"
+            ],
+            "content-length": [
+                "16"
+            ],
+            "accept-encoding": [
+                "gzip,deflate"
+            ],
+            "connection": [
+                "close"
+            ],
+            "host": "cdr.code4health.org"
+        }
+    }
+]

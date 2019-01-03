@@ -1,0 +1,51 @@
+[
+    {
+        "scope": "https://cdr.code4health.org:443",
+        "method": "POST",
+        "path": "/rest/v1/query",
+        "body": {
+            "aql": "SELECT TOP 0 e FROM EHR e"
+        },
+        "status": 204,
+        "response": "",
+        "rawHeaders": [
+            "Cache-Control",
+            "no-cache, must-revalidate, no-store",
+            "Content-Language",
+            "en",
+            "Date",
+            "Thu, 03 Jan 2019 23:15:30 GMT",
+            "Expires",
+            "0",
+            "Link",
+            "<https://cdr.code4health.org/rest/v1/query/>; rel=\"current\"",
+            "Pragma",
+            "no-cache",
+            "Server",
+            "Jetty(9.4.5.v20170502)",
+            "Connection",
+            "close"
+        ],
+        "reqheaders": {
+            "content-type": [
+                "application/json"
+            ],
+            "authorization": [
+                "Basic dXNlcm5hbWU6cGEkJHdvcmQ="
+            ],
+            "accept": [
+                "*/*"
+            ],
+            "content-length": [
+                "35"
+            ],
+            "accept-encoding": [
+                "gzip,deflate"
+            ],
+            "connection": [
+                "close"
+            ],
+            "host": "cdr.code4health.org"
+        }
+    }
+]
