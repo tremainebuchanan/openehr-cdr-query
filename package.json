@@ -2,10 +2,15 @@
   "name": "openehr-cdr-query",
   "version": "0.0.1",
   "description": "ES6 module for querying openEHR CDRs",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
+    "build": "npm run clean && node_modules/.bin/babel *.mjs --out-dir .",
+    "clean": "rm -rf *.js",
     "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js",
-    "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.js --section=API"
+    "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.mjs --section=API"
+  },
+  "engines": {
+    "node": ">=8"
   },
   "standard": {
     "env": [
