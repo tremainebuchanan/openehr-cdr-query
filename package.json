@@ -4,7 +4,8 @@
   "description": "ES6 module for querying openEHR CDRs",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js"
+    "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js",
+    "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.js --section=API"
   },
   "standard": {
     "env": [
@@ -24,6 +25,7 @@
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "babel-core": "^7.0.0-bridge.0",
+    "documentation": "^9.1.1",
     "jest": "^23.6.0",
     "nock": "^10.0.6",
     "standard": "^12.0.1"
