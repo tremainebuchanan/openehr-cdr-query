@@ -11,7 +11,7 @@ import fetch from 'node-fetch'
  * @param {String} config.authentication.username Username for authentication
  * @param {String} config.authentication.password Password for authentication
  */
-export default class CDR {
+export class CDR {
   constructor (config) {
     this.url = config.url
     this.authentication = this._basic(config.authentication.username, config.authentication.password)

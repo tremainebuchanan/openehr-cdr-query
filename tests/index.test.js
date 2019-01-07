@@ -1,4 +1,4 @@
-import CDR, { CDRError } from '../index'
+import { CDR, CDRError } from '../index'
 import nock from 'nock'
 import path from 'path'
 
