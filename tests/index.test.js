@@ -1,4 +1,4 @@
-import { CDR, CDRError } from '../index'
+import { CDR, CDRs, CDRError } from '../index'
 import nock from 'nock'
 import path from 'path'
 
@@ -105,5 +105,45 @@ describe('querying CDR', () => {
 </html>
 `)
     }
+  })
+})
+
+describe('querying multiple CDRs', () => {
+  test('successfully', async () => {
+    let cdr2 = new CDR({
+      url: 'https://cdr.code4health.org',
+      authentication: {
+        scheme: 'basic',
+        username: 'username2',
+        password: 'pa$$word'
+      }
+    })
+
+    let cdrs = new CDRs([cdr, cdr2])
+    await nockBack('cdrs_query_success.json')
+    const res = cdrs.query('SELECT TOP 1 e/ehr_id/value AS id FROM EHR e').all().concat()
+    await expect(res).resolves.toIncludeSameMembers([{
+      'meta': {
+        'href': 'https://cdr.code4health.org/rest/v1/query/'
+      },
+      'aql': 'SELECT TOP 1 e/ehr_id/value AS id FROM EHR e',
+      'executedAql': 'SELECT TOP 1 e/ehr_id/value AS id FROM EHR e',
+      'resultSet': [
+        {
+          'id': 'c9742089-1a33-4cef-b9e8-6f67de2627bf'
+        }
+      ]
+    }, {
+      'meta': {
+        'href': 'https://cdr.code4health.org/rest/v1/query/'
+      },
+      'aql': 'SELECT TOP 1 e/ehr_id/value AS id FROM EHR e',
+      'executedAql': 'SELECT TOP 1 e/ehr_id/value AS id FROM EHR e',
+      'resultSet': [
+        {
+          'id': '8c52f5fc-317a-48fa-9bd3-0bf29f0f7d33'
+        }
+      ]
+    }])
   })
 })

@@ -51,6 +51,61 @@ export class CDR {
 }
 
 /**
+ * A connection to multiple Clinical Data Repositories
+ * @param {Array<CDR>} cdrs Array of CDRs to connect to
+ */
+export class CDRs {
+  constructor (cdrs) {
+    this.cdrs = cdrs
+  }
+
+  /**
+   * Runs an AQL query against the CDRs
+   * @param {String} aql The AQL query to run
+   * @returns {CDRsResponse<Array<Promise>>} Object representing responses from the CDRs
+   */
+  query (aql) {
+    return new CDRsResponse(this.cdrs.map(c => c.query(aql)))
+  }
+}
+
+/**
+ * Class which combines responses from multiple CDRs
+ * @param {Array<Promises>} promises Array of promises from calling the API
+ */
+export class CDRsResponse {
+  constructor (promises) {
+    this.promises = promises
+  }
+
+  /**
+   * Wait for all API calls to succeed before resolving. If one fails, they all fail.
+   * @returns {CDRsFormatter<Promise>}
+   */
+  all () {
+    return new CDRsFormatter(Promise.all(this.promises))
+  }
+}
+
+/**
+ * Class which formats responses from multiple CDRs
+ * @param {Promise} promise Promise which resolves with the result of an API call
+ */
+export class CDRsFormatter {
+  constructor (promise) {
+    this.promise = promise
+  }
+
+  /**
+   * Concatenate results of multiple API calls
+   * @returns {Promise} Promise which resolves with concatenated results
+   */
+  concat () {
+    return this.promise
+  }
+}
+
+/**
 * Represents an error when communicating with a Clinical Data Repository
 * @extends Error
 * @param {Object} res node-fetch response object
