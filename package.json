@@ -7,7 +7,7 @@
     "build": "npm run clean && node_modules/.bin/babel *.js --out-dir dist",
     "clean": "rm -rf dist",
     "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js",
-    "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.mjs --section=API"
+    "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.js --section=API"
   },
   "engines": {
     "node": ">=8"

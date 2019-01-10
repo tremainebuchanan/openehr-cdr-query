@@ -12,8 +12,18 @@
     -   [Parameters](#parameters)
     -   [query](#query)
         -   [Parameters](#parameters-1)
--   [CDRError](#cdrerror)
+-   [CDRs](#cdrs)
     -   [Parameters](#parameters-2)
+    -   [query](#query-1)
+        -   [Parameters](#parameters-3)
+-   [CDRsResponse](#cdrsresponse)
+    -   [Parameters](#parameters-4)
+    -   [all](#all)
+-   [CDRsFormatter](#cdrsformatter)
+    -   [Parameters](#parameters-5)
+    -   [concat](#concat)
+-   [CDRError](#cdrerror)
+    -   [Parameters](#parameters-6)
     -   [Properties](#properties)
 
 ### CDR
@@ -38,6 +48,52 @@ Runs an AQL query against the CDR
 -   `aql` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The AQL query to run
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** A promise resolving with the parsed JSON result of the query from the CDR, or rejecting with a [CDRError](#cdrerror)
+
+### CDRs
+
+A connection to multiple Clinical Data Repositories
+
+#### Parameters
+
+-   `cdrs` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[CDR](#cdr)>** Array of CDRs to connect to
+
+#### query
+
+Runs an AQL query against the CDRs
+
+##### Parameters
+
+-   `aql` **[String](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** The AQL query to run
+
+Returns **[CDRsResponse](#cdrsresponse)&lt;[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)>>** Object representing responses from the CDRs
+
+### CDRsResponse
+
+Class which combines responses from multiple CDRs
+
+#### Parameters
+
+-   `promises` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;Promises>** Array of promises from calling the API
+
+#### all
+
+Wait for all API calls to succeed before resolving. If one fails, they all fail.
+
+Returns **[CDRsFormatter](#cdrsformatter)&lt;[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)>** 
+
+### CDRsFormatter
+
+Class which formats responses from multiple CDRs
+
+#### Parameters
+
+-   `promise` **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** Promise which resolves with the result of an API call
+
+#### concat
+
+Concatenate results of multiple API calls
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** Promise which resolves with concatenated results
 
 ### CDRError
 
