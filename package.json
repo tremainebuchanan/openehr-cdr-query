@@ -1,10 +1,10 @@
 {
   "name": "openehr-cdr-query",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ES6 module for querying openEHR CDRs",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run clean && node_modules/.bin/babel *.js --out-dir dist",
+    "prepare": "npm run clean && node_modules/.bin/babel *.js --out-dir dist",
     "clean": "rm -rf dist",
     "test": "node_modules/standard/bin/cmd.js && ./node_modules/jest/bin/jest.js",
     "generate-documentation": "node_modules/.bin/documentation readme --document-exported index.js --section=API"
